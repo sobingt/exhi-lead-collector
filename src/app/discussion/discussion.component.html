@@ -1,0 +1,58 @@
+<!-- <mat-card>
+  <mat-card-content>
+    <h3>Details Presented</h3>
+
+    <section class="products-section">
+      <mat-checkbox class="product-list check-circle" *ngFor="let product of products" [(ngModel)]=product.slug>
+        <img [src]=product.url>
+        <span>{{product.name}}</span>
+      </mat-checkbox>
+    </section>
+
+    <section class="contact-type-section">
+      <mat-checkbox class="location-list check-circle" [(ngModel)]='location'>
+        <img src='/assets/75.png' />
+        <span>Location</span>
+      </mat-checkbox>
+      <mat-checkbox class="contact-list check-circle" [(ngModel)]='contact'>
+        <img src='/assets/75.png' />
+        <span>Contact</span>
+      </mat-checkbox>
+      <mat-checkbox class="brochure-list check-circle" [(ngModel)]='brochure'>
+        <img src='/assets/75.png' />
+        <span>Brochure</span>
+      </mat-checkbox>
+    </section>
+  </mat-card-content>
+</mat-card> -->
+
+<mat-card>
+  <mat-card-content>
+    <h3>Interest Area1</h3>
+    <label class="tag" *ngFor="let interest of interests">
+      <input type="checkbox" [(ngModel)]='interest.checked' [name]=interest.slug value="" />
+      <span>{{interest.name}}</span>
+    </label>
+    
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <h3>Interest Area</h3>
+    <label class="tag" *ngFor="let interest of interests">
+      <input type="checkbox" [(ngModel)]='interest.checked' [name]=interest.slug value="" />
+      <span>{{interest.name}}</span>
+    </label>
+    
+  </mat-card-content>
+</mat-card>
+
+  <form [formGroup]="form" (submit)="submit(form.value)">
+    <div *ngFor="let skill of skills.controls; let i=index">
+      <input type="checkbox" [formControl]="skill" />{{user.skills[i].name}}
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  
+  {{ form.value | json }}

@@ -1,0 +1,33 @@
+<mat-list>
+  <div *ngIf="draft">
+  <h3 mat-subheader>Draft</h3>
+  <mat-list-item *ngFor="let draft of drafts">
+    <mat-icon mat-list-icon>folder</mat-icon>
+    <h4 mat-line>{{draft.name}}</h4>
+    <p mat-line> {{draft.updated | date}} </p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  </div>
+</mat-list>
+
+<mat-card *ngIf="leads && !draft">
+  <mat-card-header>
+    <mat-card-title>No Lead</mat-card-title>
+    <mat-card-subtitle>create new lead entry</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="/lead" >CREATE</button>
+
+  </mat-card-actions>
+</mat-card>
+
+<div class="bottom-cta">
+  <button mat-fab color="primary" routerLink="/lead">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+

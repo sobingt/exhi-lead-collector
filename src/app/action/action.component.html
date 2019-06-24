@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-content>
+    <section class="business-card-section">
+      <div class="camera">
+        <webcam [width]="300" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+          [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions"
+          [imageQuality]="1" (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)">
+        </webcam>
+      </div>
+      <div class="camera-button">
+        <button mat-raised-button color="primary" (click)="triggerSnapshot();">Take A Snapshot</button>
+        <button mat-raised-button color="warn" (click)="toggleWebcam();">Toggle Webcam</button>
+
+      </div>
+      <div class="camera-capture">
+        <img class="capture-preview" [src]=webcamImage._imageAsDataUrl *ngIf="webcamImage" />
+      </div>
+    </section>
+
+    <section class="assignto-section">
+      <h3>Assign to</h3>
+      <label class="tag" *ngFor="let assignTo of assignTos">
+        <input type="checkbox" [(ngModel)]='assignTo.checked' [name]=assignTo.slug value="" />
+        <span>{{assignTo.name}}</span>
+      </label>
+
+    </section>
+
+    <section class="followup-section">
+      <h3>Follow up</h3>
+      <label class="tag" *ngFor="let followUp of followUps">
+        <input type="checkbox" [(ngModel)]='followUp.checked' [name]=followUp.slug value="" />
+        <span>{{followUp.name}}</span>
+      </label>
+    </section>
+  </mat-card-content>
+</mat-card>

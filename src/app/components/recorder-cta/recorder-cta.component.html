@@ -1,0 +1,20 @@
+<div>
+  <div class="record-status" *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
+  <div>
+    <audio *ngIf="!isRecording && blobUrl" controls>
+      <source [src]="blobUrl" type="audio/webm">
+    </audio>
+  </div>
+</div>
+
+<div class="bottom-cta">
+  <button mat-fab color="primary" *ngIf="!isRecording && !blobUrl" (click)="startRecording()">
+    <mat-icon>play_arrow</mat-icon>
+  </button>
+  <button mat-fab color="primary" *ngIf="isRecording && !blobUrl" (click)="stopRecording()">
+    <mat-icon>stop</mat-icon>
+  </button>
+  <button mat-fab color="primary" *ngIf="!isRecording && blobUrl" (click)="clearRecordedData()">
+    <mat-icon>clear_all</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,57 @@
+<mat-card>
+  <mat-card-content>
+    <h3>Client Details</h3>
+
+    <section class="client-section">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Company Name" value="">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput type="file" capture="camera" accept="image/*" id="cameraInput" vaue="upload photo"
+          name="cameraInput" (change)="onFileSelected($event)">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Visitor Name" value="">
+      </mat-form-field>
+      <!-- <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Visitor Name"></textarea>
+      </mat-form-field> -->
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Position" value="">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" value="">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Contact" value="">
+      </mat-form-field>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <section class="nature-section">
+      <h3>Nature of business</h3>
+      <label class="tag" *ngFor="let nature of natures">
+        <input type="checkbox" [(ngModel)]='nature.checked' [name]=nature.slug value="" />
+        <span>{{nature.name}}</span>
+      </label>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <section class="nature-section">
+      <h3>Industry</h3>
+      <label class="tag">
+        <input type="checkbox" [(ngModel)]=industry [name]='industry' value="test1" />
+        <span>Test 1</span>
+      </label>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+{{industry}}

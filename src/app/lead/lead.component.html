@@ -1,0 +1,50 @@
+<!-- <router-outlet></router-outlet> -->
+<!-- 
+<div class="bottom-cta">
+    <button mat-fab color="primary">
+        <mat-icon>play_arrow</mat-icon>
+    </button>
+</div> -->
+<!-- <app-recorder-cta></app-recorder-cta> -->
+
+<!-- The content below is only a placeholder and can be replaced. -->
+<div #information>
+<dynamic-form [fields]="regConfig" (submit)="submit($event)">
+</dynamic-form>
+</div>
+<div #discussion>
+<dynamic-form [fields]="regConfigDiscussion" (submit)="submit($event)">
+</dynamic-form>
+</div>
+<div #action>
+<dynamic-form  [fields]="regConfigAction" (submit)="submit($event)">
+</dynamic-form>
+</div>
+
+<div class="margin-top">
+    {{ formInfo.value | json }}
+</div>
+<div class="margin-top">
+    {{ formDiscussion.value | json }}
+</div>
+<div class="margin-top">
+    {{ formAction.value | json }}
+</div>
+
+<div class="bottom-nav" >
+    <ul>
+        <li (click)="scroll(information)">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+            <span>Information</span>
+        </li>
+        <li (click)="scroll(discussion)">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+            <span>Discussion</span>
+        </li>
+        <li (click)="scroll(action)">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+            <span>Action</span>
+        </li>
+            
+    </ul>
+</div>

@@ -1,0 +1,74 @@
+[
+    {
+      type: "input",
+      label: "Email Address",
+      inputType: "email",
+      name: "email",
+      validations: [
+        {
+          name: "required",
+          validator: Validators.required,
+          message: "Email Required"
+        },
+        {
+          name: "pattern",
+          validator: Validators.pattern(
+            "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
+          ),
+          message: "Invalid email"
+        }
+      ]
+    },
+    {
+      type: "input",
+      label: "Password",
+      inputType: "password",
+      name: "password",
+      validations: [
+        {
+          name: "required",
+          validator: Validators.required,
+          message: "Password Required"
+        }
+      ]
+    },
+    {
+      type: "radiobutton",
+      label: "Gender",
+      name: "gender",
+      optionsArray: [{
+        label: "Product A",
+        name: "a",
+        value: true
+      }, {
+        label: "Product B",
+        name: "b",
+        value: true
+      },
+      ],
+      value: "Male"
+    },
+    {
+      type: "date",
+      label: "DOB",
+      name: "dob",
+      validations: [
+        {
+          name: "required",
+          validator: Validators.required,
+          message: "Date of Birth Required"
+        }
+      ]
+    },
+    {
+      type: "checkbox",
+      label: "Accept Terms",
+      name: "term",
+      value: true
+    },
+    {
+      type: "button",
+      label: "Save"
+    }
+  ];
+  
